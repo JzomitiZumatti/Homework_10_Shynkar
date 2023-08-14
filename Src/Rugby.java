@@ -1,31 +1,31 @@
 import java.util.Random;
 
 public class Rugby {
+    final static int genNumberOfPlayer = 25;
+    final static int minAge = 18;
+    final static int maxAge = 40;
     public static void main(String[] args) {
         Random random = new Random();
-        int genNumberOfPlayer = 25;
-        int minAge = 18;
-        int maxAge = 40;
+
         int genAgeFirstTeam = 0;
         int genAgeSecondTeam = 0;
         double avgAgeFirstTeam;
         double avgAgeSecondTeam;
 
         int[] firstTeamPlayersAge = new int[genNumberOfPlayer];
-        for (int i = 0; i < firstTeamPlayersAge.length; i++) {
-            int temp = random.nextInt(maxAge - minAge + 1) + minAge;
-            firstTeamPlayersAge[i] = temp;
-            genAgeFirstTeam += temp;
+        int[] secondTeamPlayersAge = new int[genNumberOfPlayer];
+
+        for (int i = 0; i < genNumberOfPlayer; i++) {
+            int firstTemp = random.nextInt(maxAge - minAge + 1) + minAge;
+            int secondTemp = random.nextInt(maxAge - minAge + 1) + minAge;
+            firstTeamPlayersAge[i] = firstTemp;
+            secondTeamPlayersAge[i] = secondTemp;
+            genAgeFirstTeam += firstTemp;
+            genAgeSecondTeam += secondTemp;
         }
 
         for (int age : firstTeamPlayersAge) {
             System.out.print(age + " ");
-        }
-
-        int[] secondTeamPlayersAge = new int[genNumberOfPlayer];
-        for (int i = 0; i < secondTeamPlayersAge.length; i++) {
-            secondTeamPlayersAge[i] = random.nextInt(maxAge - minAge + 1) + minAge;
-            genAgeSecondTeam += secondTeamPlayersAge[i];
         }
 
         System.out.println();
